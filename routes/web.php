@@ -19,5 +19,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
         Route::resource('/program', App\Http\Controllers\Admin\ProgramController::class)->except('show');
         Route::resource('/essay', App\Http\Controllers\Admin\EssayController::class)->except('show');
+        Route::resource('/film', App\Http\Controllers\Admin\FilmController::class)->except('show');
     });
 });
