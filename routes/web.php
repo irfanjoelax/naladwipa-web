@@ -17,5 +17,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
+        Route::resource('/program', App\Http\Controllers\Admin\ProgramController::class)->except('show');
     });
 });

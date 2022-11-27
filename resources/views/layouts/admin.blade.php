@@ -22,7 +22,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
-    @yield('style')
+    @yield('extra-style')
 </head>
 
 <body class="sb-nav-fixed bg-light">
@@ -152,7 +152,7 @@
     </div>
 
     <!-- Scripts -->
-    @yield('script')
+    @yield('extra-script')
     @include('sweetalert::alert')
 </body>
 
