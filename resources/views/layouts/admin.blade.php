@@ -89,8 +89,8 @@
                             <span class="ms-2">Film/Movie</span>
                         </a>
                         <div class="sb-sidenav-menu-heading">Settings</div>
-                        <a class="nav-link {{ $activeMenu == 'setting' ? 'bg-primary text-white' : '' }}"
-                            href="{{ url('/admin/setting') }}">
+                        <a class="nav-link {{ $activeMenu == 'information' ? 'bg-primary text-white' : '' }}"
+                            href="{{ url('/admin/information') }}">
                             <i class="fa-solid fa-globe"></i>
                             <span class="ms-2">Informations</span>
                         </a>
