@@ -11,14 +11,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Administrator | {{ env('APP_NAME') }}</title>
+    <title>Administrator - {{ env('APP_NAME') }}</title>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset(env('APP_LOGO')) }}" type="image/x-icon">
 
     <!-- Script Mix -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    {{-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> --}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -55,7 +54,7 @@
                     </li>
                     <li>
                         <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
-                            Keluar
+                            Logout
                         </a>
                     </li>
                 </ul>
@@ -68,26 +67,36 @@
             <nav class="sb-sidenav accordion bg-white" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Navigation Menu</div>
+                        <div class="sb-sidenav-menu-heading">Menu</div>
                         <a class="nav-link {{ $activeMenu == 'dashboard' ? 'bg-primary text-white' : '' }}"
                             href="{{ url('/admin/dashboard') }}">
                             <i class="fa-solid fa-gauge"></i>
                             <span class="ms-2">Dashboard</span>
                         </a>
-                        <a class="nav-link {{ $activeMenu == 'kurir' ? 'bg-primary text-white' : '' }}"
-                            href="{{ url('/admin/kurir') }}">
-                            <i class="fa-solid fa-motorcycle"></i>
-                            <span class="ms-2">Kurir</span>
+                        <a class="nav-link {{ $activeMenu == 'program' ? 'bg-primary text-white' : '' }}"
+                            href="{{ url('/admin/program') }}">
+                            <i class="fa-solid fa-list-check"></i>
+                            <span class="ms-2">Program</span>
                         </a>
-                        <a class="nav-link {{ $activeMenu == 'mitra' ? 'bg-primary text-white' : '' }}"
-                            href="{{ url('/admin/mitra') }}">
-                            <i class="fa-solid fa-shop"></i>
-                            <span class="ms-2">Mitra</span>
+                        <a class="nav-link {{ $activeMenu == 'esai' ? 'bg-primary text-white' : '' }}"
+                            href="{{ url('/admin/esai') }}">
+                            <i class="fa-regular fa-newspaper"></i>
+                            <span class="ms-2">Essay</span>
                         </a>
-                        <a class="nav-link {{ $activeMenu == 'customer' ? 'bg-primary text-white' : '' }}"
-                            href="{{ url('/admin/customer') }}">
-                            <i class="fa-solid fa-users"></i>
-                            <span class="ms-2">Customer</span>
+                        <a class="nav-link {{ $activeMenu == 'film' ? 'bg-primary text-white' : '' }}"
+                            href="{{ url('/admin/film') }}">
+                            <i class="fa-solid fa-film"></i>
+                            <span class="ms-2">Film/Movie</span>
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Settings</div>
+                        <a class="nav-link {{ $activeMenu == 'setting' ? 'bg-primary text-white' : '' }}"
+                            href="{{ url('/admin/setting') }}">
+                            <i class="fa-solid fa-globe"></i>
+                            <span class="ms-2">Informations</span>
+                        </a>
+                        <a class="nav-link" href="{{ url('/') }}" target="_blank">
+                            <i class="fa-regular fa-paper-plane"></i>
+                            <span class="ms-2">Visit Website</span>
                         </a>
                     </div>
                 </div>
@@ -120,18 +129,18 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5 fw-semibold" id="logoutModalLabel">Konfirmasi</h1>
+                    <h1 class="modal-title fs-5 fw-semibold" id="logoutModalLabel">Confirm</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Apakah Anda Yakin Ingin Keluar Dari Aplikasi Ini ?
+                    Are your sure for sign out in application now ?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tidak,
-                        Batalkan!</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">No,
+                        Cancel!</button>
                     <a class="btn btn-danger text-white" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Yes, Keluar!
+                        Yes, Signout!
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
