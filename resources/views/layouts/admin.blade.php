@@ -78,8 +78,8 @@
                             <i class="fa-solid fa-list-check"></i>
                             <span class="ms-2">Program</span>
                         </a>
-                        <a class="nav-link {{ $activeMenu == 'esai' ? 'bg-primary text-white' : '' }}"
-                            href="{{ url('/admin/esai') }}">
+                        <a class="nav-link {{ $activeMenu == 'essay' ? 'bg-primary text-white' : '' }}"
+                            href="{{ url('/admin/essay') }}">
                             <i class="fa-regular fa-newspaper"></i>
                             <span class="ms-2">Essay</span>
                         </a>
