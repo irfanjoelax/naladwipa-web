@@ -15,7 +15,10 @@ class InformationSeeder extends Seeder
     public function run()
     {
         Information::create([
-            'email'     => 'admin@admin.com',
+            'about'     => 'about naladwipa',
+            'visi'      => 'visi naladwipa',
+            'misi'      => 'misi naladwipa',
+            'email'     => 'admin@admin.coom',
             'address'   => 'Rapak Indah Street No.127, Samarinda City, East Borneo',
             'facebook'  => 'https://www.facebook.com/search/top?q=master%20digital%20solutions',
             'twitter'   => 'https://twitter.com/2022mds',

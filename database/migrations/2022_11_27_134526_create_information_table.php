@@ -14,6 +14,9 @@ class CreateInformationTable extends Migration
     public function up()
     {
         Schema::create('information', function (Blueprint $table) {
+            $table->longText('about');
+            $table->longText('visi');
+            $table->longText('misi');
             $table->string('email')->unique();
             $table->text('address');
             $table->string('facebook');
