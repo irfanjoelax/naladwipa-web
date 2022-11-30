@@ -75,7 +75,7 @@
                                 <span>{{ Str::substr($essay->created_at, 0, 10) }}</span>
                             </div>
                             <h2 class="mb-2">
-                                <a href="{{ $essay->slug }}">
+                                <a href="{{ url('essay/' . $essay->slug) }}">
                                     {{ $essay->title }}
                                 </a>
                             </h2>

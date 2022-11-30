@@ -37,11 +37,11 @@
                         <div class="post-meta mt-4">Misi &amp; Visi</div>
                         <h2 class="mb-4 display-4">Misi &amp; Visi</h2>
 
-                        <div>
+                        <div class="my-3">
                             {!! $information->visi !!}
                         </div>
 
-                        <div>
+                        <div class="">
                             {!! $information->misi !!}
                         </div>
                     </div>
