@@ -1,0 +1,35 @@
+.header {
+    background-color: #EBDCC3 !important;
+}
+
+.footer-content {
+    background-color: #EBDCC3 !important;
+    color: black !important;
+}
+
+.footer-heading,
+.footer-link-more {
+    color: black !important;
+}
+
+.footer-links li a {
+    color: black !important;
+}
+
+.post-meta span {
+    color: black !important;
+}
+
+
+.scroll-top {
+    background-color: #EBDCC3 !important;
+}
+
+.btn-detail {
+    background-color: #EBDCC3 !important;
+    color: black !important;
+}
+
+.text-justify {
+    text-align: justify !important;
+}

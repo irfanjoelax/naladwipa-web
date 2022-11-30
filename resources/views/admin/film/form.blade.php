@@ -31,6 +31,11 @@
                         <div class="col-sm-10">
                             <input type="url" class="form-control" name="url" placeholder="Paste url link video"
                                 value="{{ $isEdit ? $film->url : '' }}" required>
+                            <small class="form-text">
+                                Copy URL Video Youtube and Replace <strong class="text-danger"> <span
+                                        class="italic mx-2">watch?v=</span></strong>
+                                to <strong class="text-danger"><span class="italic mx-2">embed/</span></strong>
+                            </small>
                         </div>
                     </div>
                     <div class="row mt-4">
