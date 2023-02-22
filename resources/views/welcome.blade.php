@@ -39,7 +39,7 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-header d-flex justify-content-between align-items-center mb-5">
-                <h2>Artikel Terbaru</h2>
+                <h2>Essay Terbaru</h2>
             </div>
 
 
@@ -48,7 +48,7 @@
                     @foreach ($essay_terbaru as $essay)
                         <div class="mb-md-5 mb-4">
                             <h3>
-                                <a href="{{ $essay->slug }}">
+                                <a href="{{ url('essay/' . $essay->slug) }}">
                                     {{ $essay->title }}
                                 </a>
                             </h3>
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <h5>Terpopuler</h5>
+                    <h4>Essay Terpopuler</h4>
                     <hr>
                     @foreach ($essay_terpopuler as $essay)
                         <div class="post-entry-1 border-bottom">
