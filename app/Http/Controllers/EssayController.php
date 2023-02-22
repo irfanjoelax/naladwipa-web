@@ -25,8 +25,12 @@ class EssayController extends Controller
 
     public function detail($slug)
     {
+        $essay = Essay::where('slug', $slug)->first();
+
+        $essay->increment('hit');
+
         return view('essay_detail', [
-            'essay'        => Essay::where('slug', $slug)->first(),
+            'essay'        => $essay,
             'essay_latest' => Essay::limit(6)->latest()->get(),
         ]);
     }

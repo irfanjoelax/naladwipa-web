@@ -12,7 +12,7 @@
                     <!-- ======= Single Post Content ======= -->
                     <div class="single-post">
                         <div class="post-meta">
-                            <span>{{ Str::substr($essay->created_at, 0, 10) }}</span>
+                            <span>{{ $essay->created_at->diffForHumans() }}</span>
                         </div>
                         <h1 class="mb-5">
                             {{ $essay->title }}

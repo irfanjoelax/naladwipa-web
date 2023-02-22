@@ -23,13 +23,13 @@ class ProfileController extends Controller
         $user     = Auth::user();
         $password = $user->password;
 
-        if ($request->password != NULL) {
+        if ($request->has('password')) {
             $password = Hash::make($request->password);
         }
 
         User::find($user->id)->update([
             'name'     => $request->name,
-            'username' => $request->username,
+            'email' => $request->email,
             'password' => $password,
         ]);
 

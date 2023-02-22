@@ -10,7 +10,7 @@
 
                 <hr>
 
-                <form action="{{ route('profile.store') }}" method="POST" class="mt-4 mb-3" enctype="multipart/form-data">
+                <form action="{{ route('profile.store') }}" method="POST" class="mt-4 mb-3">
                     @csrf
                     <div class="row mb-3">
                         <label for="name" class="col-sm-2 col-form-label">Full Name</label>
@@ -30,7 +30,7 @@
                     <div class="row mb-3">
                         <label for="password" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="password"
+                            <input type="password" class="form-control" name="password"
                                 placeholder="type your new password here">
                             <small class="form-text text-danger">
                                 Leave blank if you don't want to change the password

@@ -15,7 +15,7 @@
                         <div class="d-md-flex post-entry-2 small-img">
                             <div>
                                 <div class="post-meta">
-                                    <span>{{ Str::substr($essay->created_at, 0, 10) }}</span>
+                                    <span>{{ $essay->created_at->diffForHumans() }}</span>
                                 </div>
                                 <h3>
                                     <a href="{{ url('essay/' . $essay->slug) }}">
@@ -35,7 +35,8 @@
                     <!-- Paging -->
                     <div class="text-center py-4">
                         {{ $essays->appends($request)->links() }}
-                    </div><!-- End Paging -->
+                    </div>
+                    <!-- End Paging -->
                 </div>
             </div>
         </div>

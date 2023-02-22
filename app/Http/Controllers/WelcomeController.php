@@ -19,8 +19,8 @@ class WelcomeController extends Controller
     {
         return view('welcome', [
             'banners'  => Banner::all(),
-            'programs' => Program::all(),
-            'essays'   => Essay::limit(5)->latest()->get()
+            'essay_terbaru'   => Essay::limit(5)->latest()->get(),
+            'essay_terpopuler'   => Essay::limit(5)->orderBy('hit', 'DESC')->get(),
         ]);
     }
 }

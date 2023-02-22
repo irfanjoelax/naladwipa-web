@@ -39,40 +39,38 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-header d-flex justify-content-between align-items-center mb-5">
-                <h2>{{ env('APP_NAME') }}</h2>
+                <h2>Artikel Terbaru</h2>
             </div>
 
-            <div class="row">
-                <div class="col-md-9">
-                    @foreach ($programs as $program)
-                        <div class="d-lg-flex post-entry-2">
-                            <a href="{{ $program->slug }}" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
-                                <img src="{{ asset('storage/' . $program->image) }}" alt=""
-                                    class="img-fluid rounded-4">
-                            </a>
-                            <div>
-                                <h3>
-                                    <a href="{{ $program->slug }}">
-                                        {{ $program->title }}
-                                    </a>
-                                </h3>
-                                <p class="text-justify">
-                                    {!! Str::words($program->description, 25, '...') !!}
-                                </p>
 
-                                <a href="{{ url('program/' . $program->slug) }}" class="btn btn-detail">
-                                    Lihat Selengkapnya <i class="bi bi-arrow-right-short"></i>
+            <div class="row">
+                <div class="col-md-8">
+                    @foreach ($essay_terbaru as $essay)
+                        <div class="mb-md-5 mb-4">
+                            <h3>
+                                <a href="{{ $essay->slug }}">
+                                    {{ $essay->title }}
                                 </a>
-                            </div>
+                            </h3>
+
+                            <p class="text-justify">
+                                {!! Str::words($essay->content, 25, '...') !!}
+                            </p>
+
+                            <a href="{{ url('essay/' . $essay->slug) }}" class="btn btn-detail">
+                                Lihat Selengkapnya <i class="bi bi-arrow-right-short"></i>
+                            </a>
                         </div>
                     @endforeach
                 </div>
 
-                <div class="col-md-3">
-                    @foreach ($essays as $essay)
+                <div class="col-md-4">
+                    <h5>Terpopuler</h5>
+                    <hr>
+                    @foreach ($essay_terpopuler as $essay)
                         <div class="post-entry-1 border-bottom">
                             <div class="post-meta">
-                                <span>{{ Str::substr($essay->created_at, 0, 10) }}</span>
+                                <span>{{ $essay->created_at->diffForHumans() }}</span>
                             </div>
                             <h2 class="mb-2">
                                 <a href="{{ url('essay/' . $essay->slug) }}">
