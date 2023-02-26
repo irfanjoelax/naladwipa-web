@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('extra-style')
-    <link rel="stylesheet" href="{{ asset('vendor/ckeditor/ckeditor.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -19,15 +19,32 @@
                         @method('PUT')
                     @endif
                     <div class="row mb-3">
+                        <label for="image">Title</label>
                         <div class="col-sm-12">
                             <input type="text" class="form-control" name="title"
                                 placeholder="Type title your essay here" value="{{ $isEdit ? $essay->title : '' }}" required
                                 autofocus>
                         </div>
                     </div>
+
                     <div class="row mb-3">
                         <div class="col-sm-12">
-                            <textarea class="form-control ckeditor" name="content">{{ $isEdit ? $essay->content : '' }}</textarea>
+                            <label for="image">Image</label>
+                            <input type="file" class="form-control" name="image" {{ $isEdit ? '' : 'required' }}>
+                            @if ($isEdit)
+                                <small class="form-text text-danger">
+                                    Leave blank if you don't want to change the essay image
+                                </small>
+                                <br>
+                                <img src="{{ asset('storage/' . $essay->image) }}" class="img-thumbnail mt-2"
+                                    width="150">
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <textarea class="form-control summernote" name="content">{{ $isEdit ? $essay->content : '' }}</textarea>
                         </div>
                     </div>
                     <div class="row mt-4">
@@ -60,15 +77,11 @@
 @endsection
 
 @section('extra-script')
-    <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script>
-        ClassicEditor
-            .create(document.querySelector('.ckeditor'))
-            .then(editor => {
-                console.log(editor);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        $(document).ready(function() {
+            $('.summernote').summernote();
+        });
     </script>
 @endsection

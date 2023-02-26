@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Essay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -38,10 +39,13 @@ class EssayController extends Controller
 
     public function store(Request $request)
     {
+        $image = $request->file('image')->store('essay');
+
         Essay::create([
             'id'      => Str::uuid(),
             'title'   => $request->title,
             'slug'    => Str::slug($request->title),
+            'image'   => $image,
             'content' => $request->content,
         ]);
 
@@ -67,9 +71,20 @@ class EssayController extends Controller
 
     public function update(Request $request, $id)
     {
-        Essay::find($id)->update([
+        $essay = Essay::find($id);
+
+        $image = $essay->image;
+
+        if ($request->has('image')) {
+            $image = $request->file('image')->store('essay');
+
+            Storage::delete($essay->image);
+        }
+
+        $essay->update([
             'title'   => $request->title,
             'slug'    => Str::slug($request->title),
+            'image'   => $image,
             'content' => $request->content,
         ]);
 
@@ -80,7 +95,11 @@ class EssayController extends Controller
 
     public function destroy($id)
     {
-        Essay::find($id)->delete();
+        $essay = Essay::find($id);
+
+        Storage::delete($essay->image);
+
+        $essay->delete();
 
         Alert::error('Success', 'Your essay has been deleted');
 

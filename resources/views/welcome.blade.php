@@ -47,6 +47,9 @@
                 <div class="col-md-8">
                     @foreach ($essay_terbaru as $essay)
                         <div class="mb-md-5 mb-4">
+                            @if ($essay->image != null)
+                                <img src="{{ asset('storage/' . $essay->image) }}" class="img-fluid rounded-4">
+                            @endif
                             <h3>
                                 <a href="{{ url('essay/' . $essay->slug) }}">
                                     {{ $essay->title }}

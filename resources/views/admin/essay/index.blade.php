@@ -28,7 +28,8 @@
                         <thead>
                             <tr>
                                 <th class="text-center" width="10%">#</th>
-                                <th class="text-start" width="85%">Title</th>
+                                <th class="text-center" width="20%">Image</th>
+                                <th class="text-start" width="65%">Title</th>
                                 <th class="text-center" width="5%"><i class="fa-solid fa-bolt"></i></th>
                             </tr>
                         </thead>
@@ -37,6 +38,10 @@
                                 <tr>
                                     <td class="text-center">
                                         {{ ($essays->currentPage() - 1) * $essays->perPage() + $loop->iteration }}
+                                    </td>
+                                    <td class="text-center">
+                                        <img src="{{ asset('storage/' . $essay->image) }}" class="img-fluid rounded-4"
+                                            width="150">
                                     </td>
                                     <td class="text-start">
                                         {{ $essay->title }}

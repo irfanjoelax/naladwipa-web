@@ -7,11 +7,15 @@
 @section('content')
     <section id="search-result" class="search-result">
         <div class="container">
-            <div class="row">
-                <div class="col-md-9 mx-auto">
-                    <h3 class="category-title">Esai {{ env('APP_NAME') }}</h3>
-
-                    @foreach ($essays as $essay)
+            <h3 class="category-title">Esai {{ env('APP_NAME') }}</h3>
+            @foreach ($essays as $essay)
+                <div class="row">
+                    <div class="col-4">
+                        @if ($essay->image != null)
+                            <img src="{{ asset('storage/' . $essay->image) }}" class="img-fluid rounded-4">
+                        @endif
+                    </div>
+                    <div class="col-8">
                         <div class="d-md-flex post-entry-2 small-img">
                             <div>
                                 <div class="post-meta">
@@ -22,23 +26,23 @@
                                         {{ $essay->title }}
                                     </a>
                                 </h3>
-                                <p>
+                                <div class="d-none d-md-block d-lg-block">
                                     {!! Str::words($essay->content, 35, '...') !!}
-                                </p>
+                                </div>
                                 <a href="{{ url('essay/' . $essay->slug) }}" class="btn btn-detail">
                                     Lihat Selengkapnya <i class="bi bi-arrow-right-short"></i>
                                 </a>
                             </div>
                         </div>
-                    @endforeach
-
-                    <!-- Paging -->
-                    <div class="text-center py-4">
-                        {{ $essays->appends($request)->links() }}
                     </div>
-                    <!-- End Paging -->
                 </div>
+            @endforeach
+
+            <!-- Paging -->
+            <div class="text-center py-4">
+                {{ $essays->appends($request)->links() }}
             </div>
+            <!-- End Paging -->
         </div>
     </section> <!-- End Search Result -->
 @endsection

@@ -11,6 +11,9 @@
                 <div class="col-md-9 post-content" data-aos="fade-up">
                     <!-- ======= Single Post Content ======= -->
                     <div class="single-post">
+                        @if ($essay->image != null)
+                            <img src="{{ asset('storage/' . $essay->image) }}" class="img-fluid rounded-4 mb-3">
+                        @endif
                         <div class="post-meta">
                             <span>{{ $essay->created_at->diffForHumans() }}</span>
                         </div>
